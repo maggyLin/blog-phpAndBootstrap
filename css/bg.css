@@ -1,0 +1,112 @@
+/**
+ * 引入google的中文字型
+ * 參考老師的github頁面 http://mktsai.github.io/google_chinese_traditional_font/demo.html?f=4
+ */
+@import url(//fonts.googleapis.com/earlyaccess/cwtexyen.css);
+
+/**
+ * 重點0
+ * 把html跟body的高度設定為 100% 主要是為了符合視窗高度 
+ */
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: 'cwTeXYen', sans-serif;/* 使用載入的字型 */
+  color: #fff;
+  font-size: 14pt;
+}
+
+/*超連結預設沒有底線*/
+a {
+  text-decoration: none;
+}
+/*超連結滑鼠移上後預設也沒有底線*/
+a:hover {
+  text-decoration: none;
+}
+
+/**
+ * 重點1
+ * 讓有 fix_bg 或者有 info 類別元素，最小高度100%（會因為html,body都是100%，所以會等於視窗的高度）
+ * position 設定為 relative 對應參考區塊，裡面的元素若使用 position: absolute 會根據此區塊位置顯示
+ */
+.fix_bg, .info {
+  position: relative;
+  min-height: 100%;
+}
+
+/**
+ * 重點2
+ * 讓所有 fix_bg 預設設定背景圖為 不重複、size為cover，固定且位置在中間。
+ * position 設定為 relative 對應參考區塊，裡面的元素若使用 position absolute 會根據此區塊位置顯示
+ */
+.fix_bg {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: 50% 50%;
+}
+
+/**
+ * 重點3
+ * 若某些區塊有加入此類別，背景就會呈現指定的圖。當捲動到的時候就會呈現。
+ */
+.bg_1 {
+  background-image: url(../images/food_1.jpg);
+}
+
+.bg_2 {
+  background-image: url(../images/Baby_Boys_Cooking.jpg);
+}
+
+.bg_3 {
+  background-image: url(../images/cooking.jpg);
+}
+
+/**
+ * 讓資訊區塊上下的padding內容間距為100左右為0
+ */
+.info {
+  padding: 100px 0px;
+}
+
+/**
+ * 有使用到此類別的區塊，會對父元素來說是水平垂直置中
+ */
+.vcenter {
+  position: absolute; /*位置為：相對位置*/
+  left: 50%;	/*離左邊為父類別的50寬*/
+  top: 50%;	/*離上面邊為父類別的50高*/
+  bottom: auto;	/*離下面為父類別的50高*/
+  right: auto;	/*離右邊為父類別的50寬*/
+  /*以下 transform，主要是讓此元素往左移動自己本身寬度的50%，也往上左移動自己本身高度的50%，而前方所加的-xxx-前綴詞，是for不同瀏覽器的*/
+  -webkit-transform: translateX(-50%) translateY(-50%); /* Chrome, newer versions of Opera*/
+  -moz-transform: translateX(-50%) translateY(-50%); /* Firefox */
+  -ms-transform: translateX(-50%) translateY(-50%); /* nternet Explorer */
+  -o-transform: translateX(-50%) translateY(-50%); /* Old versions of Opera */
+  transform: translateX(-50%) translateY(-50%); /* 沒限制，有支援的瀏覽器就會run */
+  text-align: center; /*裡面的文字置中*/
+}
+
+/*文字陰影*/
+.shadow {
+  text-shadow: 0px 0px 5px rgba(0,0,0, .8);
+}
+
+/*不一樣的背景顏色*/
+.color_1 {
+  background-color: #70de8d;
+}
+.color_2 {
+  background-color: #2db6b3;
+}
+
+/*地址區塊*/
+.address {
+  padding: 40px;
+  border-radius: 10px;
+  background-color: rgba(255,255,255,0.9);
+  color: #333;
+}
